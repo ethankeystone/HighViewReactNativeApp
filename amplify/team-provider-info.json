@@ -1,0 +1,20 @@
+{
+    "env": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-highview-env-151954-authRole",
+            "UnauthRoleArn": "arn:aws:iam::745602894372:role/amplify-highview-env-151954-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::745602894372:role/amplify-highview-env-151954-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-highview-env-151954-deployment",
+            "UnauthRoleName": "amplify-highview-env-151954-unauthRole",
+            "StackName": "amplify-highview-env-151954",
+            "StackId": "arn:aws:cloudformation:us-east-1:745602894372:stack/amplify-highview-env-151954/0eff1fd0-3af9-11ea-b4e9-0a531bfc577e",
+            "AmplifyAppId": "d3o0dm2ks4dsm"
+        },
+        "categories": {
+            "auth": {
+                "highview6bab2123": {}
+            }
+        }
+    }
+}

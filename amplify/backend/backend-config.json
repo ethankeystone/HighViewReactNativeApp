@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"highview6bab2123": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
