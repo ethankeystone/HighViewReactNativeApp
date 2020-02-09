@@ -1,0 +1,38 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-highview-env-151954-authRole",
+			"UnauthRoleArn": "arn:aws:iam::745602894372:role/amplify-highview-env-151954-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::745602894372:role/amplify-highview-env-151954-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "amplify-highview-env-151954-deployment",
+			"UnauthRoleName": "amplify-highview-env-151954-unauthRole",
+			"StackName": "amplify-highview-env-151954",
+			"StackId": "arn:aws:cloudformation:us-east-1:745602894372:stack/amplify-highview-env-151954/0eff1fd0-3af9-11ea-b4e9-0a531bfc577e",
+			"AmplifyAppId": "d3o0dm2ks4dsm"
+		}
+	},
+	"auth": {
+		"highview6bab2123": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false,
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-highview-env-151954-deployment/amplify-cfn-templates/auth/highview6bab2123-cloudformation-template.yml",
+				"logicalId": "authhighview6bab2123"
+			},
+			"lastPushTimeStamp": "2020-01-19T20:26:06.712Z",
+			"output": {
+				"AppClientSecret": "1sult267iiogqij4jgtfhdr2rjh8r3sbooh2ksq8oli1fj91p2nb",
+				"UserPoolId": "us-east-1_ndqYQtMzR",
+				"AppClientIDWeb": "1tu05coh7f4mmkm4tv39e48dkj",
+				"AppClientID": "1m0os5u28ki395tv720pi15nt7",
+				"IdentityPoolId": "us-east-1:19404c6f-0632-4a4b-aa3f-f9b0ee30ba30",
+				"IdentityPoolName": "highview6bab2123_identitypool_6bab2123__env",
+				"UserPoolName": "highview6bab2123_userpool_6bab2123"
+			},
+			"lastPushDirHash": "FGuqubKL13O0XZrnPKN8vSmmXu0="
+		}
+	}
+}
