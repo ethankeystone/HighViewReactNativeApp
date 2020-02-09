@@ -4,15 +4,22 @@ import { getCurrentFrame } from 'expo/build/AR'
 
  const styles = StyleSheet.create({   
    container: {                       
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
         alignItems: 'center',
-        flex: 1,
         justifyContent: 'center',
+        marginTop: 100
+  },
+   main: {
+    backgroundColor: '#ffffff',
+    flex:1,
    },
    image: {
       width: 400,
       height: 200,
       resizeMode: 'contain'
+   },
+   textInputText: {
+    color: "#004779"
    },
    textInput: {
       textAlign: "center",
@@ -24,41 +31,49 @@ import { getCurrentFrame } from 'expo/build/AR'
    },
    textInputBorder: {
     margin: 5,
-    borderColor: "#1273de",
-    borderLeftWidth: 4,
-    borderRightWidth: 4,
-    borderTopWidth: 4,
-    borderBottomWidth: 4,
+    borderColor: "#004779",
+    borderBottomWidth: 2
    },
    bigText: {
       textAlign: "center",
       padding: 15,
-      color: "#1273de",
+      color: "#004779"  ,
       fontWeight: "bold",
       fontFamily: "MainFont",
-      fontSize: 20
-    }
+      fontSize: 40
+    }, 
+    triangleCorner: {
+      width: 0,
+      height: 0,
+      backgroundColor: 'transparent',
+      borderStyle: 'solid',
+      borderRightWidth: 100,
+      borderTopWidth: 100,
+      borderRightColor: 'transparent',
+      borderTopColor: 'red'
+    },
  })
   
  const buttons = StyleSheet.create({  
    button1: {                   
      color: "white",
-     backgroundColor: "#1273de",
-     borderRadius: 20,
+     backgroundColor: "#004779",
      height: 50,
      width: 250,
-     margin: 10
+     margin: 10,
+     marginTop: 30
    },
    buttonText1: {
      textAlign: "center",
      padding: 15,
      color: "white",
      fontWeight: "bold",
-     fontFamily: "MainFont"
+     fontFamily: "MainFont",
+     fontSize: 17
    }, 
    button2: {
     color: "white",
-    backgroundColor: "#1273de",
+    backgroundColor: "#004779",
     borderRadius: 20,
     height: 30,
     width: 150,
@@ -66,8 +81,7 @@ import { getCurrentFrame } from 'expo/build/AR'
    },
    button3: {
     color: "white",
-    backgroundColor: "#144BFB",
-    borderRadius: 20,
+    backgroundColor: "#004779",
     height: 30,
     width: 150,
     margin: 10

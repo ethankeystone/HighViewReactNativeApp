@@ -61,41 +61,43 @@ export default class CreateAccount extends React.Component {
 
     render() {
         return(
-            <View style={styles.container}>
-                <Text style={styles.bigText}> {this.state.text} </Text>
-                <View style={styles.textInputBorder}>
-                    <TextInput
-                        style={styles.textInput}
-                        onChangeText={text => this.onChangeText("username", text)}
-                        placeholder="Email Address"
-                        returnKeyType = { "next" }
-                        onSubmitEditing={() => { this.secondTextInput.focus(); }}
-                    />
+            <View style={styles.main}>
+                <View style={styles.container}>
+                    <Text style={styles.bigText}> Create An Account </Text>
+                    <View style={styles.textInputBorder}>
+                        <Text style={styles.textInputText}>Username</Text>
+                        <TextInput
+                            style={styles.textInput}
+                            onChangeText={text => this.onChangeText("username", text)}
+                            returnKeyType = { "next" }
+                            onSubmitEditing={() => { this.secondTextInput.focus(); }}
+                        />
+                    </View>
+                    <View style={styles.textInputBorder}>
+                        <Text style={styles.textInputText}>Password</Text>
+                        <TextInput
+                            style={styles.textInput}
+                            onChangeText={text => this.onChangeText("password", text)}
+                            secureTextEntry={true}
+                            ref={(input) => { this.secondTextInput = input; }}
+                        />
+                    </View>
+                    <View style={styles.textInputBorder}>
+                        <Text style={styles.textInputText}>Re-enter Password</Text>
+                        <TextInput
+                            style={styles.textInput}
+                            onChangeText={text => this.onChangeText("secondPassword", text)}
+                            secureTextEntry={true}
+                            ref={(input) => { this.secondTextInput = input; }}
+                        />
+                    </View>
+                    <TouchableOpacity
+                            style={buttons.button1}
+                            onPress={() => this.createAccount()}
+                    >
+                            <Text style={buttons.buttonText1}> Create Account </Text>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.textInputBorder}>
-                    <TextInput
-                        style={styles.textInput}
-                        onChangeText={text => this.onChangeText("password", text)}
-                        secureTextEntry={true}
-                        placeholder="Password"
-                        ref={(input) => { this.secondTextInput = input; }}
-                    />
-                </View>
-                <View style={styles.textInputBorder}>
-                    <TextInput
-                        style={styles.textInput}
-                        onChangeText={text => this.onChangeText("secondPassword", text)}
-                        secureTextEntry={true}
-                        placeholder="Please re-enter your password"
-                        ref={(input) => { this.secondTextInput = input; }}
-                    />
-                </View>
-                <TouchableOpacity
-                        style={buttons.button1}
-                        onPress={() => this.createAccount()}
-                >
-                        <Text style={buttons.buttonText1}> Create Account </Text>
-                </TouchableOpacity>
             </View>
         );
     }
