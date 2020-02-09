@@ -3,33 +3,49 @@ import { StyleSheet, Text, View } from 'react-native';
 import Amplify from 'aws-amplify';
 import amplify from './aws-exports';
 
-import Home from "./Home";
-import SignIn from "./SignIn";
-import CreateAccount from "./CreateAccount";
-import ConfirmationCode from "./ConfirmationCode";
-import Success from "./Success";
-import ReservationScreen from "./ReservationScreen";
+import Home from "./screens/Home/Home";
+import SignIn from "./screens/SignIn/SignIn";
+import CreateAccount from "./screens/CreateAccount/CreateAccount";
+import ConfirmationCode from "./screens/CreateAccount/ConfirmationCode";
+import Success from "./screens/CreateAccount/Success";
+import ReservationScreen from "./screens/ReservationScreen/ReservationScreen";
+import ReserveSpot from "./screens/ReservationScreen/ReserveSpot";
 
-import {createAppContainer } from 'react-navigation';
-import {createStackNavigator} from "react-navigation-stack";  
+
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {createStackNavigator, navigationOptions} from "react-navigation-stack";  
+
 
 Amplify.configure(amplify);
 
 
-const MainNavigator = createStackNavigator({
-  Home: { screen: Home },
-  SignIn: { screen: SignIn },
+const AuthStack = createStackNavigator({ 
+  Home: {screen: Home}, 
+  SignIn: { screen: SignIn},
   CreateAccount: {screen: CreateAccount},
   ConfirmationCode: {screen: ConfirmationCode},
   Success: {screen: Success},
-  ReservationScreen: {screen: ReservationScreen}
 });
 
-const App = createAppContainer(MainNavigator);
+const AppStack = createStackNavigator({ 
+  ReservationScreen: {screen: ReservationScreen},
+  ReserveSpot: {screen: ReserveSpot}
+});
 
-export default App;
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoading: Home,
+      App: AppStack,
+      Auth: AuthStack,
+    },
+    {
+      initialRouteName: 'AuthLoading',
+    }
+  )
+);
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',

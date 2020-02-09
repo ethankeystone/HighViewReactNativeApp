@@ -1,12 +1,12 @@
- import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { getCurrentFrame } from 'expo/build/AR'
 
 
  const styles = StyleSheet.create({   
    container: {                       
-        flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
+        flex: 1,
         justifyContent: 'center',
    },
    image: {
@@ -35,7 +35,7 @@ import { getCurrentFrame } from 'expo/build/AR'
       padding: 15,
       color: "#1273de",
       fontWeight: "bold",
-      fontFamily: "sans-serif",
+      fontFamily: "MainFont",
       fontSize: 20
     }
  })
@@ -54,7 +54,30 @@ import { getCurrentFrame } from 'expo/build/AR'
      padding: 15,
      color: "white",
      fontWeight: "bold",
-     fontFamily: "sans-serif"
+     fontFamily: "MainFont"
+   }, 
+   button2: {
+    color: "white",
+    backgroundColor: "#1273de",
+    borderRadius: 20,
+    height: 30,
+    width: 150,
+    margin: 10
+   },
+   button3: {
+    color: "white",
+    backgroundColor: "#144BFB",
+    borderRadius: 20,
+    height: 30,
+    width: 150,
+    margin: 10
+   },
+   buttonText2: {
+    textAlign: "center",
+    padding: 8,
+    color: "white",
+    fontWeight: "bold",
+    fontFamily: "MainFont"
    }
  })
   

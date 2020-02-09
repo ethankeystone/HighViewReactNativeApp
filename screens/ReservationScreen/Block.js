@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import {buttons} from "./components/styles";
+import {buttons} from "../../components/styles";
 var green = "#00FF37";
 var red = "#FF0000";
 
@@ -9,7 +9,9 @@ export default class Block extends Component {
         super(props);
         this.state = {
             SpaceID: this.props.spotInfo['SpaceID'],
-            isOccupied: this.props.spotInfo['isOccupied']
+            isOccupied: this.props.spotInfo['isOccupied'],
+            userName: this.props.username,
+            reservedBy: this.props.reservedBy
         }
         this.reserve = this.reserve.bind(this);
         this.unReserve = this.unReserve.bind(this);
@@ -59,20 +61,25 @@ export default class Block extends Component {
           })
     }
 
+    navigateSpecificReserve() {
+        console.log(this.props.plate)
+        this.setState({
+            username: this.props.username,
+            plate: this.props.plate
+        });
+
+        this.props.navigation.navigate("ReserveSpot", this.state);
+    }
     render() {
+        
         return(
-            <View style={styles.container}>
-                <Text styles={styles.text1}> Current SpaceID: {this.state.SpaceID}</Text>
-                <Text>{this.state.occupied}</Text>
-                <View style={styles.buttonView}>
-                <TouchableOpacity
-                    style={buttons.button1}
-                    onPress={() => this.reserve()}
-                >
-                        <Text style={styles.text1}> Reserve </Text>
-                </TouchableOpacity>
-                </View>
-            </View>
+            <TouchableOpacity
+            style={this.props.username == this.props.reservedBy ? styles.grey : styles.container}
+            onPress={() => this.navigateSpecificReserve()}
+            >
+                <Text style={styles.text1}> Current SpaceID: {this.state.SpaceID}</Text>
+                <Text style={styles.text1}> Location: Student Center</Text>
+            </TouchableOpacity>
         );
     }
 }
@@ -85,13 +92,22 @@ const styles = StyleSheet.create({
         padding: 15     
     },
     container: {
-        backgroundColor: "#1273de"
+        backgroundColor: "#1273de",
+        marginBottom: 15
+    },
+    grey: {
+        backgroundColor: "grey",
+        marginBottom: 15
     },
     text1: {
-        textAlign: "center",
-        padding: 15,
+        padding: 10,
+        paddingBottom: 2,
+        margin: 5,
         color: "white",
         fontWeight: "bold",
-        fontFamily: 'sans-serif'
-      }
+        fontFamily: 'MainFont'
+      },
+    center: {
+        textAlign: "center",
+    }
 })

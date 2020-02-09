@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
-import { styles, buttons } from './components/styles' 
+import { styles, buttons } from '../../components/styles' 
 
 export default class Success extends React.Component {
     render() {

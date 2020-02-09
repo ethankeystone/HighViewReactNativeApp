@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 import { Auth } from 'aws-amplify';
-import { styles, buttons } from './components/styles' 
+import { styles, buttons } from '../../components/styles' 
 
 export default class ConfirmationCode extends React.Component {
     state = {
@@ -38,6 +38,7 @@ export default class ConfirmationCode extends React.Component {
         this.state.username = (navigation.getParam('username', 'N/A'));
         return(
             <View style={styles.container}>
+                <Text> An confirmation code has been sent to your email.</Text>
                 <Text>{this.state.text}</Text>
                 <View style={styles.textInputBorder}>
                     <TextInput 

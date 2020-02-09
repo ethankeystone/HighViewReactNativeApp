@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { Auth } from 'aws-amplify';
-import { styles, buttons } from './components/styles' 
+import { styles, buttons } from '../../components/styles' 
 
 export default class SignIn extends React.Component {
     state = {
@@ -20,7 +20,6 @@ export default class SignIn extends React.Component {
     }
 
     signIn() {
-        console.log(this.state);
         if (this.state.username != "") {
             if (this.state.password != "") {
                 Auth.signIn(this.state.username, this.state.password)
@@ -36,10 +35,10 @@ export default class SignIn extends React.Component {
                             phone_number: '1234567890'
                             }
                         ).then(user => {
-                            console.log(user);
-                            console.log("SUCCESS");
+                            //console.log(user);
+                            //console.log("SUCCESS");
                         }).catch(e => {
-                            console.log(e);
+                            //console.log(e);
                         
                         });
                     } else {
@@ -48,6 +47,9 @@ export default class SignIn extends React.Component {
                     }).catch(e => {
                         console.log(e);
                         this.onChangeText("text", e.message);
+                        if (e.code === "UserNotConfirmedException") {
+                            this.props.navigation.navigate("ConfirmationCode", this.state);
+                        }
                     });
             } else {
                 this.onChangeText("text", "Password is empty");
