@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HighView with Auth",
-    "slug": "highviewwithauth",
+    "name": "HighView",
+    "slug": "highview",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -24,8 +24,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.highviewtechnologies",
+      "buildNumber": "1.0.0"
     },
-    "description": ""
+    "description": "The application for booking using HighView."
   }
 }

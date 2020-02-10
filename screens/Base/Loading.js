@@ -30,7 +30,7 @@ export default class Loading extends Component {
         });
         return(
             <View > 
-                <Animated.Image source={require("../../img/Loading.png/")} style={{
+                <Animated.Image source={require("../../img/Loading.png")} style={{
         width: 40,
         height: 40,
         transform: [{rotate: spin}]

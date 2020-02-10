@@ -10,7 +10,8 @@ export default class ConfirmationCode extends React.Component {
         email:"",
         confirmationCode:"",
         needConfirmation: false,
-        text: ""
+        text: "",
+        message: "Your account has successfully been created"
     }
 
     sendConfirmationCode() {
@@ -18,7 +19,7 @@ export default class ConfirmationCode extends React.Component {
         Auth.confirmSignUp(this.state.username, this.state.confirmationCode, {
             forceAliasCreation: true    
         }).then(data => {
-            this.props.navigation.navigate("Success");
+            this.props.navigation.navigate("Success", this.state);
         })
           .catch(err => {
                 console.log(err);
@@ -37,8 +38,10 @@ export default class ConfirmationCode extends React.Component {
         const { navigation } = this.props;
         this.state.username = (navigation.getParam('username', 'N/A'));
         return(
-            <View style={styles.container}>
-                <Text> An confirmation code has been sent to your email.</Text>
+            <View style={styles.main}>
+                <View style={styles.container}>
+                <Text style={styles.bigText}>Confirmation Code</Text>
+                <Text style={styles.descriptionText}> A confirmation code has been sent to your email.</Text>
                 <Text>{this.state.text}</Text>
                 <View style={styles.textInputBorder}>
                     <TextInput 
@@ -55,6 +58,7 @@ export default class ConfirmationCode extends React.Component {
                 >
                         <Text style={buttons.buttonText1}> Submit </Text>
                 </TouchableOpacity>
+            </View>
             </View>
         );
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { styles, buttons } from '../../components/styles' 
 
@@ -20,10 +20,21 @@ export default class CreateAccount extends React.Component {
         });
     }
 
+    makeAlert(title, message) {
+        Alert.alert(
+            title,
+            message,
+            [
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ],
+            {cancelable: false},
+          );
+    }
+
     createAccount() {
-        console.log(this.state);
         if(this.state.password != this.state.secondPassword) {
-            this.setState({text: "Passwords do not match"});
+            this.makeAlert("Passwords don't match", 
+                    "The passwords entered do not match. Please try again.");
         } else {
             if(this.state.username != "") {
                 if(this.state.password != "") {
@@ -38,19 +49,19 @@ export default class CreateAccount extends React.Component {
                             })
                             .catch(err => {
                                 if(err.message == "Username cannot be empty") {
-                                    console.log("empty");
+                                   this.makeAlert("Username field empty", "Username field cannot be empty");
                                 } else {
-                                    this.setError("Email is already in use");
+                                    this.makeAlert("Email in use", "The email entered is already used. Please enter in a different email address");
                                 }
                             });
                     } else {
-                        this.setError("Password must be greater than 8 characters");
+                        this.makeAlert("Password is under 8 characters", "Please make your password 8 characters or more")
                     }
                 } else {
-                    this.setError("Password field is empty");
+                    this.makeAlert("Password field is empty", "Please enter a valid password");
                 }
             } else {
-                this.setError("Username field is empty");
+                this.makeAlert("Username field is empty", "Please enter a valid username");
             }
         }
     }
@@ -80,6 +91,7 @@ export default class CreateAccount extends React.Component {
                             onChangeText={text => this.onChangeText("password", text)}
                             secureTextEntry={true}
                             ref={(input) => { this.secondTextInput = input; }}
+                            onSubmitEditing={() => this.thirdTextInput.focus()}
                         />
                     </View>
                     <View style={styles.textInputBorder}>
@@ -88,7 +100,7 @@ export default class CreateAccount extends React.Component {
                             style={styles.textInput}
                             onChangeText={text => this.onChangeText("secondPassword", text)}
                             secureTextEntry={true}
-                            ref={(input) => { this.secondTextInput = input; }}
+                            ref={(input) => { this.thirdTextInput = input; }}
                         />
                     </View>
                     <TouchableOpacity

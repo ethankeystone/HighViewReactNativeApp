@@ -10,7 +10,8 @@ import ConfirmationCode from "./screens/CreateAccount/ConfirmationCode";
 import Success from "./screens/CreateAccount/Success";
 import ReservationScreen from "./screens/ReservationScreen/ReservationScreen";
 import ReserveSpot from "./screens/ReservationScreen/ReserveSpot";
-
+import ForgotPassword from "./screens/ForgotPassword/ForgotPassword";
+import ResetPassword from "./screens/ForgotPassword/ResetPassword";
 
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import {createStackNavigator, navigationOptions} from "react-navigation-stack";  
@@ -25,6 +26,8 @@ const AuthStack = createStackNavigator({
   CreateAccount: {screen: CreateAccount},
   ConfirmationCode: {screen: ConfirmationCode},
   Success: {screen: Success},
+  ForgotPassword: {screen: ForgotPassword},
+  ResetPassword: {screen: ResetPassword}
 });
 
 const AppStack = createStackNavigator({ 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
 import { styles, buttons} from '../../components/styles';
 import logo from "../../img/logo.png";
 
@@ -22,6 +22,17 @@ export default class Home extends React.Component {
         this.setState({
             [key]: value
         });
+    }
+    
+    makeAlert(title, message) {
+        Alert.alert(
+            title,
+            message,
+            [
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ],
+            {cancelable: false},
+          );
     }
 
     signIn() {
@@ -51,22 +62,24 @@ export default class Home extends React.Component {
                     }
                     }).catch(e => {
                         console.log(e);
-                        this.onChangeText("text", e.message);
                         if (e.code === "UserNotConfirmedException") {
                             this.props.navigation.navigate("ConfirmationCode", this.state);
+                        } else {
+                            this.makeAlert("Error", e.message);
                         }
                     });
             } else {
-                this.onChangeText("text", "Password is empty");
+                this.makeAlert("Password field is empty", "Please enter a valid password");
             }
         } else {
-            this.onChangeText("text", "Username is empty");
+            this.makeAlert("Username field is empty", "Please enter a valid username");
         }
     }
 
     async componentDidMount() {
         await Font.loadAsync({
-            "MainFont": require("../../font/Roboto-Regular.ttf")
+            "MainFont": require("../../font/Roboto-Regular.ttf"),
+            "BigTextFont": require("../../font/Montserrat-Bold.ttf")
         }).then(() => {
             this.setState({isFontLoading: false});
         })
@@ -113,7 +126,7 @@ export default class Home extends React.Component {
                             <Text style={buttons.buttonText1}> Login </Text>
                         </TouchableOpacity>
                         
-                        <Text style={styles.textInputBorder} onPress={() => console.log("Something")}>Forgot Password?</Text>
+                        <Text style={styles.textInputBorder} onPress={() => this.props.navigation.navigate("ForgotPassword")}>Forgot Password?</Text>
 
                         <Text style={styles.textInputBorder, {marginTop: 60}} onPress={() =>  this.props.navigation.navigate("CreateAccount")}>Don’t have an account? Create One</Text>
                     </View>

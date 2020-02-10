@@ -90,7 +90,8 @@ export default class ReserveSpot extends React.Component {
             )
         } else {
             return(
-                <View style={styles.container}>
+                <View style={styles.main}>
+                    <View style={styles.container}>
                     <Text>The SpaceID Number is : {this.props.navigation.state.params.SpaceID}</Text>
                     <TextInput 
                             style={styles.textInput}
@@ -106,6 +107,7 @@ export default class ReserveSpot extends React.Component {
                     >
                        <Text style={buttons.buttonText1}> Reserve </Text>
                     </TouchableOpacity>
+                </View>
                 </View>
             )
         }

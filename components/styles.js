@@ -39,9 +39,16 @@ import { getCurrentFrame } from 'expo/build/AR'
       padding: 15,
       color: "#004779"  ,
       fontWeight: "bold",
-      fontFamily: "MainFont",
+      fontFamily: "BigTextFont",
       fontSize: 40
     }, 
+    descriptionText: {
+      textAlign: "center",
+      color: "#4D4F51"  ,
+      fontFamily: "MainFont",
+      fontSize: 15,
+      marginBottom: 30
+    },
     triangleCorner: {
       width: 0,
       height: 0,
@@ -56,7 +63,6 @@ import { getCurrentFrame } from 'expo/build/AR'
   
  const buttons = StyleSheet.create({  
    button1: {                   
-     color: "white",
      backgroundColor: "#004779",
      height: 50,
      width: 250,
