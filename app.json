@@ -28,6 +28,10 @@
       "bundleIdentifier": "com.highviewtechnologies",
       "buildNumber": "1.0.0"
     },
+    "android": {
+      "package": "com.highviewtechnologies",
+      "versionCode": 1
+  },
     "description": "The application for booking using HighView."
   }
 }
