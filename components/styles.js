@@ -7,7 +7,7 @@ import { getCurrentFrame } from 'expo/build/AR'
         backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 100
+        flex: 3
   },
    main: {
     backgroundColor: '#ffffff',

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
 import { styles, buttons} from '../../components/styles';
 import logo from "../../img/logo.png";
+import BlueTriangle from "../../img/BlueTriangle.png";
 
 import { Auth } from 'aws-amplify';
 
@@ -99,6 +100,8 @@ export default class Home extends React.Component {
         } else {
             return(
                 <View style={styles.main}>
+
+                    <Image source={BlueTriangle} style={{height: null, width: null, flex: 1}}></Image>   
                     <View style={styles.container}>
                         <Image source={logo} style={styles.image}></Image>
                         <View style={styles.textInputBorder}>
@@ -130,6 +133,7 @@ export default class Home extends React.Component {
 
                         <Text style={styles.textInputBorder, {marginTop: 60}} onPress={() =>  this.props.navigation.navigate("CreateAccount")}>Don’t have an account? Create One</Text>
                     </View>
+                    <Image source={BlueTriangle} style={{height: null, width: null, flex: 1, transform: [{rotate: '180deg'}]}}></Image>   
                 </View>   
             );
         }
