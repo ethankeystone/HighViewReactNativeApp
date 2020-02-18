@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, Alert, StatusBar } from 'react-native';
 import { styles, buttons} from '../../components/styles';
 import logo from "../../img/logo.png";
 
@@ -102,22 +102,24 @@ export default class Home extends React.Component {
                     <View style={styles.container}>
                         <Image source={logo} style={styles.image}></Image>
                         <View style={styles.textInputBorder}>
-                        <Text style={styles.textInputText}>Username</Text>
-                        <TextInput
-                            style={styles.textInput}
-                            onChangeText={text => this.onChangeText("username", text)}
-                            returnKeyType = { "next" }
-                            onSubmitEditing={() => { this.secondTextInput.focus(); }}
-                        />
-                        </View>
-                        <View style={styles.textInputBorder}>
-                        <Text style={styles.textInputText}>Password</Text>
+                            <Text style={styles.textInputText}>Username</Text>
                             <TextInput
                                 style={styles.textInput}
-                                onChangeText={text => this.onChangeText("password", text)}
-                                secureTextEntry={true}
-                                ref={(input) => { this.secondTextInput = input; }}
+                                onChangeText={text => this.onChangeText("username", text)}
+                                returnKeyType = { "next" }
+                                onSubmitEditing={() => { this.secondTextInput.focus(); }}
+                                autoCapitalize = 'none'
                             />
+                        </View>
+                        <View style={styles.textInputBorder}>
+                            <Text style={styles.textInputText}>Password</Text>
+                                <TextInput
+                                    style={styles.textInput}
+                                    onChangeText={text => this.onChangeText("password", text)}
+                                    secureTextEntry={true}
+                                    ref={(input) => { this.secondTextInput = input; }}
+                                    autoCapitalize = 'none'
+                                />
                         </View>
                         <TouchableOpacity
                                 style={buttons.button1}

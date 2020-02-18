@@ -82,6 +82,7 @@ export default class CreateAccount extends React.Component {
                             onChangeText={text => this.onChangeText("username", text)}
                             returnKeyType = { "next" }
                             onSubmitEditing={() => { this.secondTextInput.focus(); }}
+                            autoCapitalize = 'none'
                         />
                     </View>
                     <View style={styles.textInputBorder}>

@@ -68,6 +68,7 @@ export default class SignIn extends React.Component {
                         onChangeText={text => this.onChangeText("username", text)}
                         placeholder="Email Address"
                         returnKeyType = { "next" }
+                        autoCapitalize = 'none'
                         onSubmitEditing={() => { this.secondTextInput.focus(); }}
                     />
                 </View>
