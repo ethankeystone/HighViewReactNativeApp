@@ -129,6 +129,7 @@ export default class ReservationScreen extends Component {
               </Image>
             </TouchableOpacity>
           </View>
+          <Text style={styles.bigText}>Student Center</Text>
           <ScrollView styles={styles.container}>
             {this.state.Occupied["Items"].map(object => {
               if((0 == object["isOccupied"] || object["Username"] == this.state.username) && object["CurrentStatus"] != 99) {

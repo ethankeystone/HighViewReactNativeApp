@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import { styles, buttons } from '../../components/styles';
 import { TextInput } from 'react-native-gesture-handler';
+import BlueTriangle from "../../img/BlueTriangle.png";
 
 export default class ReserveSpot extends React.Component {
     constructor(props) {
@@ -84,10 +85,11 @@ export default class ReserveSpot extends React.Component {
         if(this.state.reservedBy == this.state.username) {
             return(
                 <View style={styles.main}>
+                    <Image source={BlueTriangle} style={styles.topTriangle}></Image>
                     <View style={styles.container}>
-                        <Text>The SpaceID Number is : {this.props.navigation.state.params.SpaceID}</Text>
-                        <Text>This spot is reserved by you</Text>
-                        <Text>Liscence Plate: {this.props.navigation.state.params.plate} </Text>
+                        <Text style={styles.bigText}>Space Number : {this.props.navigation.state.params.SpaceID}</Text>
+                        <Text style={styles.textInputText}>This spot is reserved by you</Text>
+                        <Text style={styles.textInputText}>Entered Liscence Plate: {this.props.navigation.state.params.plate} </Text>
                         <TouchableOpacity
                         style={buttons.button1}
                         onPress={() => this.unReserve()}
@@ -95,13 +97,15 @@ export default class ReserveSpot extends React.Component {
                         <Text style={buttons.buttonText1}> Unreserve </Text>
                         </TouchableOpacity>
                     </View>
+                    <Image source={BlueTriangle} style={styles.bottomTriangle}></Image>
                 </View>
             )
         } else {
             return(
                 <View style={styles.main}>
+                    <Image source={BlueTriangle} style={styles.topTriangle}></Image>
                     <View style={styles.container}>
-                    <Text>The SpaceID Number is : {this.props.navigation.state.params.SpaceID}</Text>
+                    <Text style={styles.bigText}>Space Number : {this.props.navigation.state.params.SpaceID}</Text>
                     <TextInput 
                             style={styles.textInput}
                             onChangeText={text => this.onChangeText("LiscencePlate", text)}
@@ -113,7 +117,8 @@ export default class ReserveSpot extends React.Component {
                     >
                        <Text style={buttons.buttonText1}> Reserve </Text>
                     </TouchableOpacity>
-                </View>
+                    </View>
+                    <Image source={BlueTriangle} style={styles.bottomTriangle}></Image>
                 </View>
             )
         }

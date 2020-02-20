@@ -77,7 +77,7 @@ export default class Block extends Component {
             style={this.props.username == this.props.reservedBy ? styles.grey : styles.container}
             onPress={() => this.navigateSpecificReserve()}
             >
-                <Text style={styles.text1}> Current SpaceID: {this.state.SpaceID}</Text>
+                <Text style={styles.text1}> Space Number: {this.state.SpaceID}</Text>
                 <Text style={styles.text1}> Location: Student Center</Text>
             </TouchableOpacity>
         );
