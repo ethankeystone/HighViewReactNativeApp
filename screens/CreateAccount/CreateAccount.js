@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { styles, buttons } from '../../components/styles' 
+import BlueTriangle from "../../img/BlueTriangle.png";
 
 export default class CreateAccount extends React.Component {
     state = {
@@ -73,6 +74,7 @@ export default class CreateAccount extends React.Component {
     render() {
         return(
             <View style={styles.main}>
+                <Image source={BlueTriangle} style={styles.topTriangle}></Image>  
                 <View style={styles.container}>
                     <Text style={styles.bigText}> Create An Account </Text>
                     <View style={styles.textInputBorder}>
@@ -111,6 +113,7 @@ export default class CreateAccount extends React.Component {
                             <Text style={buttons.buttonText1}> Create Account </Text>
                     </TouchableOpacity>
                 </View>
+                <Image source={BlueTriangle} style={styles.bottomTriangle}></Image>   
             </View>
         );
     }

@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity, Image } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { styles, buttons } from '../../components/styles' 
+import BlueTriangle from "../../img/BlueTriangle.png";
 
 export default class ConfirmationCode extends React.Component {
     state = {
@@ -39,6 +40,7 @@ export default class ConfirmationCode extends React.Component {
         this.state.username = (navigation.getParam('username', 'N/A'));
         return(
             <View style={styles.main}>
+                <Image source={BlueTriangle} style={styles.topTriangle}></Image>
                 <View style={styles.container}>
                 <Text style={styles.bigText}>Confirmation Code</Text>
                 <Text style={styles.descriptionText}> A confirmation code has been sent to your email.</Text>
@@ -58,7 +60,8 @@ export default class ConfirmationCode extends React.Component {
                 >
                         <Text style={buttons.buttonText1}> Submit </Text>
                 </TouchableOpacity>
-            </View>
+                </View>
+                <Image source={BlueTriangle} style={styles.bottomTriangle}></Image>
             </View>
         );
     }

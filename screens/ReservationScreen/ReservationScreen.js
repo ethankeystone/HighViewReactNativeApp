@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Color, ScrollView, SafeAreaView, BackHandler } from 'react-native';
+import { StyleSheet, Text, View, Button, Color, ScrollView, SafeAreaView, BackHandler, Image } from 'react-native';
 import Block from './Block';
 import Loading from '../Base/Loading';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles, buttons } from '../../components/styles';
-
+import refresh from "../../img/refresh.png";
+import logout from "../../img/logout.png";
 import { Auth } from 'aws-amplify';
 
 export default class ReservationScreen extends Component {
@@ -110,18 +111,22 @@ export default class ReservationScreen extends Component {
     } else {
       return (
         <SafeAreaView>
-          <View style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
-            <TouchableOpacity
-                    style={buttons.button2}
-                    onPress={() => {this.signOut()}}
-                >
-                        <Text style={buttons.buttonText2}> Sign Out</Text>
+          <View style={{display: "flex", flexDirection: "row", justifyContent: "space-around", paddingBottom: 5}}>
+          <TouchableOpacity  onPress={() => {this.refresh()}}>
+              <Image 
+                source={refresh} 
+                style={styles.icon}
+              >   
+              </Image>
             </TouchableOpacity>
             <TouchableOpacity
-                    style={buttons.button2}
-                    onPress={() => {this.refresh()}}
+                    onPress={() => {this.signOut()}}
                 >
-                        <Text style={buttons.buttonText2}> Refresh Page </Text>
+                <Image 
+                  source={logout} 
+                  style={styles.icon}
+                >   
+              </Image>
             </TouchableOpacity>
           </View>
           <ScrollView styles={styles.container}>

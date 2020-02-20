@@ -1,7 +1,17 @@
-import { StyleSheet } from 'react-native'
-import { getCurrentFrame } from 'expo/build/AR'
+import { StyleSheet, PixelRatio } from 'react-native';
+import { getCurrentFrame } from 'expo/build/AR';
+import RNU from 'react-native-units';
 
-
+var TEXT_INPUT  = 15;
+var BUTTON_SIZE_WIDTH = 250;
+var BUTTON_SIZE_HEIGHT = 50;
+var BUTTON_PADDING = 15;
+if (PixelRatio.get() <= 2) {
+  TEXT_INPUT = 12;
+  BUTTON_SIZE_WIDTH = 200;
+  BUTTON_SIZE_HEIGHT = 35;
+  BUTTON_PADDING = 8;
+}
  const styles = StyleSheet.create({   
    container: {                       
         backgroundColor: '#ffffff',
@@ -11,21 +21,24 @@ import { getCurrentFrame } from 'expo/build/AR'
   },
    main: {
     backgroundColor: '#ffffff',
-    flex:1,
+    padding: 0,
+    margin: 0,
+    flex: 1,
    },
    image: {
-      width: 400,
-      height: 200,
+      width: RNU.vw(100),
+      height: RNU.vh(20),
       resizeMode: 'contain'
    },
    textInputText: {
-    color: "#004779"
+    color: "#004779",
+    fontSize: TEXT_INPUT
    },
    textInput: {
       textAlign: "center",
       padding: 10,
       width: 300,
-      fontSize: 16,
+      fontSize: TEXT_INPUT,
       paddingLeft: 15,
       paddingRight: 15,
    },
@@ -46,32 +59,42 @@ import { getCurrentFrame } from 'expo/build/AR'
       textAlign: "center",
       color: "#4D4F51"  ,
       fontFamily: "MainFont",
-      fontSize: 15,
+      fontSize: TEXT_INPUT,
       marginBottom: 30
     },
-    triangleCorner: {
-      width: 0,
-      height: 0,
-      backgroundColor: 'transparent',
-      borderStyle: 'solid',
-      borderRightWidth: 100,
-      borderTopWidth: 100,
-      borderRightColor: 'transparent',
-      borderTopColor: 'red'
+    topTriangle: {
+      height: null, 
+      width: null, 
+      resizeMode: 'stretch',
+      flex: 1,
+      padding: 0,
+      margin: 0
     },
+    bottomTriangle: {
+      height: null, 
+      width: null, 
+      resizeMode: 'stretch',
+      flex: 1, 
+      transform: [{rotate: '180deg'}]
+    },
+    icon: {
+      resizeMode: 'contain',
+      width: 32,
+      height: 32
+    }
  })
   
  const buttons = StyleSheet.create({  
    button1: {                   
      backgroundColor: "#004779",
-     height: 50,
-     width: 250,
+     height: BUTTON_SIZE_HEIGHT,
+     width: BUTTON_SIZE_WIDTH,
      margin: 10,
      marginTop: 30
    },
    buttonText1: {
      textAlign: "center",
-     padding: 15,
+     padding: BUTTON_PADDING,
      color: "white",
      fontWeight: "bold",
      fontFamily: "MainFont",

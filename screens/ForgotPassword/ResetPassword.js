@@ -1,8 +1,9 @@
 
 import React from "react";
-import {Text, View, TextInput, TouchableOpacity, Alert} from "react-native";
+import {Text, View, TextInput, TouchableOpacity, Alert, Image} from "react-native";
 import { styles, buttons } from "../../components/styles";
 import { Auth } from 'aws-amplify';
+import BlueTriangle from "../../img/BlueTriangle.png";
 
 export default class ResetPassword extends React.Component {
     constructor(props) {
@@ -55,6 +56,7 @@ export default class ResetPassword extends React.Component {
     render() {
         return(
             <View style={styles.main}>
+                <Image source={BlueTriangle} style={styles.topTriangle}></Image>   
                 <View style={styles.container}>
                     <Text style={styles.bigText}>Reset Password</Text>
                     <Text style={styles.descriptionText}>
@@ -91,6 +93,7 @@ export default class ResetPassword extends React.Component {
                             <Text style={buttons.buttonText1}> Reset </Text>
                     </TouchableOpacity>
                 </View>
+                <Image source={BlueTriangle} style={styles.bottomTriangle}></Image>   
             </View>
         )
     }

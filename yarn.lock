@@ -2462,7 +2462,7 @@ expo-web-browser@~8.0.0:
   resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-8.0.0.tgz#8a4451c744c115569a4c810dac8851f219a21c72"
   integrity sha512-7/rXUajycSjEF4Zd4tWm8+zP9/zJg8UWj575w2AeGI7RbOwUjqzQd1CFRzQBJkHflrEaTOXJbFHXxjJXdJaL1g==
 
-expo@^36.0.0:
+expo@^36.0.2:
   version "36.0.2"
   resolved "https://registry.yarnpkg.com/expo/-/expo-36.0.2.tgz#17e5470c056f8615ebdd6819087af6a1032cf1ad"
   integrity sha512-A0HkOBr6PkHUCcPmmTRmZQHE68EYhWDevFHAiv7fSZxNACmTq9arrSoON+UiPtGQEIV5OyV+MN/joHTJMduTkA==
@@ -4506,6 +4506,11 @@ react-native-screens@2.0.0-alpha.12:
   integrity sha512-tOxHGQUN83MTmQB4ghoQkibqOdGiX4JQEmeyEv96MKWO/x8T2PJv84ECUos9hD3blPRQwVwSpAid1PPPhrVEaw==
   dependencies:
     debounce "^1.2.0"
+
+react-native-units@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-units/-/react-native-units-1.0.0.tgz#ed83c73bfed33f8753667af9685c4283e95d6e79"
+  integrity sha512-k3rqRSGM0w7FXpYSapDyf6jkUazC9iKfGgAXW8GCmtnFloD/zAIxz4w7T+6pnZP0DloUTYqhSrTAP3QOOySuLw==
 
 react-native-view-shot@3.0.2:
   version "3.0.2"

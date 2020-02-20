@@ -100,8 +100,7 @@ export default class Home extends React.Component {
         } else {
             return(
                 <View style={styles.main}>
-
-                    <Image source={BlueTriangle} style={{height: null, width: null, flex: 1}}></Image>   
+                    <Image source={BlueTriangle} style={styles.topTriangle}></Image>   
                     <View style={styles.container}>
                         <Image source={logo} style={styles.image}></Image>
                         <View style={styles.textInputBorder}>
@@ -133,9 +132,9 @@ export default class Home extends React.Component {
                         
                         <Text style={styles.textInputBorder} onPress={() => this.props.navigation.navigate("ForgotPassword")}>Forgot Password?</Text>
 
-                        <Text style={styles.textInputBorder, {marginTop: 60}} onPress={() =>  this.props.navigation.navigate("CreateAccount")}>Don’t have an account? Create One</Text>
+                        <Text style={styles.textInputBorder} onPress={() =>  this.props.navigation.navigate("CreateAccount")}>Don’t have an account? Create One</Text>
                     </View>
-                    <Image source={BlueTriangle} style={{height: null, width: null, flex: 1, transform: [{rotate: '180deg'}]}}></Image>   
+                    <Image source={BlueTriangle} style={styles.bottomTriangle}></Image>   
                 </View>   
             );
         }

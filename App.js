@@ -21,18 +21,18 @@ Amplify.configure(amplify);
 
 
 const AuthStack = createStackNavigator({ 
-  Home: {screen: Home}, 
-  SignIn: { screen: SignIn},
-  CreateAccount: {screen: CreateAccount},
-  ConfirmationCode: {screen: ConfirmationCode},
-  Success: {screen: Success},
-  ForgotPassword: {screen: ForgotPassword},
-  ResetPassword: {screen: ResetPassword}
+  Home: {screen: Home, navigationOptions: {headerShown: false}}, 
+  SignIn: { screen: SignIn, navigationOptions: {headerShown: false}},
+  CreateAccount: {screen: CreateAccount, navigationOptions: {headerShown: false}},
+  ConfirmationCode: {screen: ConfirmationCode, navigationOptions: {headerShown: false}},
+  Success: {screen: Success, navigationOptions: {headerShown: false}},
+  ForgotPassword: {screen: ForgotPassword, navigationOptions: {headerShown: false}},
+  ResetPassword: {screen: ResetPassword, navigationOptions: {headerShown: false}}
 });
 
 const AppStack = createStackNavigator({ 
-  ReservationScreen: {screen: ReservationScreen},
-  ReserveSpot: {screen: ReserveSpot}
+  ReservationScreen: {screen: ReservationScreen, navigationOptions: {headerShown: false}},
+  ReserveSpot: {screen: ReserveSpot, navigationOptions: {headerShown: false}}
 });
 
 export default createAppContainer(
